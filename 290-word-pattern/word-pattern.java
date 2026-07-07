@@ -11,22 +11,17 @@ class Solution {
         HashMap<String, Character> reverse = new HashMap<>();
 
         for (int i = 0; i < arr.length; i++) {
-
             char c = pattern.charAt(i);
-
             if (!map.containsKey(c)) {
                 map.put(c, arr[i]);
             }
-
             if (!reverse.containsKey(arr[i])) {
                 reverse.put(arr[i], c);
             }
-
             if (!map.get(c).equals(arr[i]) || reverse.get(arr[i]) != c) {
                 return false;
             }
         }
-
         return true;
     }
 }
