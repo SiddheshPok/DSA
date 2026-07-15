@@ -28,9 +28,9 @@ class Solution {
         }
         return sum;
     }
-    public int gcdOfOddEvenSums(int n) {
-        int odd = sumOdd(n);
-        int even = sumEven(n);
+
+    public int gcdCount(int odd, int even)
+    {
         int min = Math.min(odd,even);
         int ans = 1;
         for(int i = 1; i <= min; i++)
@@ -40,6 +40,13 @@ class Solution {
                 ans = Math.max(ans,i);
             }
         }
+        return ans;
+    }
+    public int gcdOfOddEvenSums(int n) {
+        int odd = sumOdd(n);
+        int even = sumEven(n);
+        int ans = gcdCount(odd,even);
+        
         return ans;
     }
 }
