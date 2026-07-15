@@ -1,33 +1,33 @@
 class Solution {
-    public int sumOdd(int n)
-    {
-        if(n == 1) return 1;
-        int sum = 0;
-        int i = 1;
-        int j = 0;
-        while(j < n)
-        {
-            sum += i;
-            i += 2;
-            j++;
-        }
-        return sum;
-    }
+    // public int sumOdd(int n)
+    // {
+    //     if(n == 1) return 1;
+    //     int sum = 0;
+    //     int i = 1;
+    //     int j = 0;
+    //     while(j < n)
+    //     {
+    //         sum += i;
+    //         i += 2;
+    //         j++;
+    //     }
+    //     return sum;
+    // }
 
-    public int sumEven(int n)
-    {
-        if(n == 1) return 2;
-        int sum = 0;
-        int i = 2;
-        int j = 0;
-        while(j < n)
-        {
-            sum += i;
-            i += 2;
-            j++;
-        }
-        return sum;
-    }
+    // public int sumEven(int n)
+    // {
+    //     if(n == 1) return 2;
+    //     int sum = 0;
+    //     int i = 2;
+    //     int j = 0;
+    //     while(j < n)
+    //     {
+    //         sum += i;
+    //         i += 2;
+    //         j++;
+    //     }
+    //     return sum;
+    // }
 
     public int gcdCount(int odd, int even)
     {
@@ -43,10 +43,22 @@ class Solution {
         return ans;
     }
     public int gcdOfOddEvenSums(int n) {
-        int odd = sumOdd(n);
-        int even = sumEven(n);
-        int ans = gcdCount(odd,even);
-        
+        // int odd = sumOdd(n);
+        // int even = sumEven(n);
+        int esum = 0;
+        int osum = 0;
+        for(int i = 1; i <= n * 2; i++)
+        {
+            if(i % 2 == 0)
+            {
+                esum += i;
+            }
+            else
+            {
+                osum += i;
+            }
+        }
+        int ans = gcdCount(esum,osum);
         return ans;
     }
 }
