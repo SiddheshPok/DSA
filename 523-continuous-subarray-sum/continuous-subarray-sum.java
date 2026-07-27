@@ -18,6 +18,7 @@ class Solution {
                 map.put(rem,i);
             }
         }
+        // if(pre_sum % k == 0) return true;
         return false;
     }
 }
