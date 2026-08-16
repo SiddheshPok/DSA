@@ -6,7 +6,7 @@ class Solution {
             set.add(num);
         }
         int k = 1;
-        if(nums.length == 1 && nums[0] == 1) return 2;
+        // if(nums.length == 1 && nums[0] == 1) return 2;
         while(k <= nums.length)
         {
             if(!set.contains(k))
