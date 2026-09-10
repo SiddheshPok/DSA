@@ -14,33 +14,42 @@
  * }
  */
 class Solution {
-    public int maxDepth(TreeNode root) 
-    {
-        List<List<Integer>> ans = new ArrayList<>();
-        Queue<TreeNode> q = new LinkedList<>();
+    // public int maxDepth(TreeNode root) 
+    // {
+    //     List<List<Integer>> ans = new ArrayList<>();
+    //     Queue<TreeNode> q = new LinkedList<>();
+    //     if( root == null ) return 0;
+
+    //     q.add(root);
+
+    //     while(!q.isEmpty())
+    //     {
+    //         int size = q.size();
+    //         List<Integer> level = new ArrayList<>();
+    //         for( int i = 0; i < size; i++ )
+    //         {
+    //             TreeNode node = q.poll();
+    //             level.add(node.val);
+    //             if(node.left != null) 
+    //             {
+    //                 q.add(node.left);
+    //             }
+    //             if(node.right != null) 
+    //             {
+    //                 q.add(node.right);
+    //             }
+    //         }
+    //         ans.add(level);
+    //     }
+    //     return ans.size();
+    // }
+    private int calculateDepth(TreeNode root){
         if( root == null ) return 0;
-
-        q.add(root);
-
-        while(!q.isEmpty())
-        {
-            int size = q.size();
-            List<Integer> level = new ArrayList<>();
-            for( int i = 0; i < size; i++ )
-            {
-                TreeNode node = q.poll();
-                level.add(node.val);
-                if(node.left != null) 
-                {
-                    q.add(node.left);
-                }
-                if(node.right != null) 
-                {
-                    q.add(node.right);
-                }
-            }
-            ans.add(level);
-        }
-        return ans.size();
+        int left = calculateDepth(root.left);
+        int right = calculateDepth(root.right);
+        return 1  + Math.max(left, right);
+    }
+    public int maxDepth(TreeNode root){
+        return calculateDepth(root);
     }
 }
