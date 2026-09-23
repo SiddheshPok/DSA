@@ -16,7 +16,6 @@
 class Solution {
     HashMap<Integer,Integer> map = new HashMap<>();
     int post_index ;
-
     public TreeNode buildTree(int[] inorder, int[] postorder) {
         for(int i = 0; i < inorder.length; i++) {
             map.put(inorder[i], i);
@@ -27,7 +26,6 @@ class Solution {
 
     private TreeNode build(int[] postorder,int left, int right) {
         if(left > right) return null;
-
         TreeNode root = new TreeNode(postorder[post_index--]);
         int inorder_index = map.get(root.val);
         root.right = build(postorder,inorder_index + 1, right);
